@@ -1,0 +1,66 @@
+
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: robert
+      MYSQL_PASSWORD: robert
+      MYSQL_ROOT_PASSWORD: robert
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wordpress_network
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress_app
+    depends_on:
+      - mysql
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306 # mysql container name
+      WORDPRESS_DB_USER: robert
+      WORDPRESS_DB_PASSWORD: robert
+      WORDPRESS_DB_NAME: wordpress
+      # Enable WordPress debug mode (maps to WP_DEBUG in wp-config.php for the official image)
+      WORDPRESS_DEBUG: "1"
+      GMAIL_APP_PASSWORD: "nkfs oufn ftto vpqo"
+    command: bash -c "mkdir -p /var/www/html/wp-content/themes/mypage && docker-entrypoint.sh apache2-foreground"
+    volumes:
+      - ./:/var/www/html/wp-content/themes/mypage
+    networks:
+      - wordpress_network
+
+  wpcli:
+    image: wordpress:cli
+    container_name: wpcli
+    depends_on:
+      - mysql
+      - wordpress
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: robert
+      WORDPRESS_DB_PASSWORD: robert
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: "1"
+    volumes:
+      - ./:/var/www/html/wp-content/themes/mypage
+    networks:
+      - wordpress_network
+
+volumes:
+  db_data:
+
+networks:
+  wordpress_network:
+    driver: bridge
+
+

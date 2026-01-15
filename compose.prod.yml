@@ -1,0 +1,34 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_projekt_1
+    restart: unless-stopped
+    env_file: .env.prod
+    volumes:
+      - db_projekt_1:/var/lib/mysql    
+    networks:
+      - wordpress_network
+
+  wordpress:
+    image: robertcieplinski/projekt_1:latest
+    container_name: wordpress_app_projekt_1
+    depends_on:
+      - mysql
+    restart: unless-stopped
+    # ports:
+    #   - 8080:80
+    env_file: .env.prod
+    networks:
+      - wordpress_network
+      - nginx-proxy_internal-net
+
+volumes:
+  db_projekt_1:
+networks:
+  wordpress_network:
+    driver: bridge
+  nginx-proxy_internal-net:
+    external: true
+
+
