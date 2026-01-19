@@ -2,17 +2,17 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql_projekt_1
+    container_name: mysql_mywebsite
     restart: unless-stopped
     env_file: .env.prod
     volumes:
-      - db_projekt_1:/var/lib/mysql    
+      - db_mywebsite:/var/lib/mysql    
     networks:
       - wordpress_network
 
   wordpress:
-    image: robertcieplinski/projekt_1:latest
-    container_name: wordpress_app_projekt_1
+    image: robertcieplinski/mywebsite:latest
+    container_name: wordpress_mywebsite
     depends_on:
       - mysql
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
       - nginx-proxy_internal-net
 
 volumes:
-  db_projekt_1:
+  db_mywebsite:
 networks:
   wordpress_network:
     driver: bridge

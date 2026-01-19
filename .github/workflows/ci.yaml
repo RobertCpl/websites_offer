@@ -26,7 +26,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/projekt_1:${{ github.ref == 'refs/heads/pre-prod' && 'pre-prod' || 'latest' }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mywebsite:${{ github.ref == 'refs/heads/pre-prod' && 'pre-prod' || 'latest' }}
 
   deploy-to-vps:
     runs-on: ubuntu-latest
@@ -40,20 +40,20 @@ jobs:
       - name: Copy compose.prod.yml to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.VPS_HOST }}
+          host: 57.128.245.117
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "compose.prod.yml"
-          target: "wordpress/projekt_1/"
+          target: "wordpress/mywebsite/"
 
       - name: Deploy on VPS via SSH
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.VPS_HOST }}
+          host: 57.128.245.117
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd wordpress/projekt_1
+            cd wordpress/mywebsite
             docker compose -f compose.prod.yml down
             docker compose -f compose.prod.yml pull
             docker compose -f compose.prod.yml up -d
