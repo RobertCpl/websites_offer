@@ -57,3 +57,7 @@ jobs:
             docker compose -f compose.prod.yml down
             docker compose -f compose.prod.yml pull
             docker compose -f compose.prod.yml up -d
+            docker exec -i wordpress_mywebsite sh -lc "
+              chgrp -R www-data /var/www/html/wp-content/uploads &&
+              chmod -R 775 /var/www/html/wp-content/uploads &&
+              find /var/www/html/wp-content/uploads -type d -exec chmod 2775 {} \;"
