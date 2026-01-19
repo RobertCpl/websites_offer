@@ -1,4 +1,3 @@
-
 services:
   mysql:
     image: mysql:8.0
@@ -6,7 +5,7 @@ services:
     restart: unless-stopped
     env_file: .env.prod
     volumes:
-      - db_mywebsite:/var/lib/mysql    
+      - db_mywebsite:/var/lib/mysql
     networks:
       - wordpress_network
 
@@ -19,16 +18,17 @@ services:
     # ports:
     #   - 8080:80
     env_file: .env.prod
+    volumes:
+      - wp_uploads_mywebsite:/var/www/html/wp-content/uploads
     networks:
       - wordpress_network
       - nginx-proxy_internal-net
 
 volumes:
   db_mywebsite:
+  wp_uploads_mywebsite:
 networks:
   wordpress_network:
     driver: bridge
   nginx-proxy_internal-net:
     external: true
-
-

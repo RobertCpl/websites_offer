@@ -1,5 +1,3 @@
-
-
 services:
   mysql:
     image: mysql:8.0
@@ -36,6 +34,7 @@ services:
     command: bash -c "mkdir -p /var/www/html/wp-content/themes/mypage && docker-entrypoint.sh apache2-foreground"
     volumes:
       - ./:/var/www/html/wp-content/themes/mypage
+      - wp_uploads:/var/www/html/wp-content/uploads
     networks:
       - wordpress_network
 
@@ -53,14 +52,15 @@ services:
       WORDPRESS_DEBUG: "1"
     volumes:
       - ./:/var/www/html/wp-content/themes/mypage
+      - wp_uploads:/var/www/html/wp-content/uploads
     networks:
       - wordpress_network
 
 volumes:
   db_data:
+  wp_uploads:
+
 
 networks:
   wordpress_network:
     driver: bridge
-
-
