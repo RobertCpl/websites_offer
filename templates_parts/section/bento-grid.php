@@ -9,7 +9,8 @@
       echo mypage_attachment_image_by_filename('hero-megaphone.webp', 'full', [
         'alt' => '3D Megaphone Abstract',
         'class' => 'filter contrast-125 opacity-90 mix-blend-multiply w-[120%] h-[120%] object-cover brightness-110',
-        'loading' => 'lazy',
+        'loading' => 'eager',
+        'fetchpriority' => 'high',
         'decoding' => 'async',
         'sizes' => '(min-width: 1024px) 42vw, 100vw',
       ]);
@@ -32,7 +33,7 @@
       echo mypage_attachment_image_by_filename('hero-icon.webp', 'full', [
         'alt' => '3D Icon',
         'class' => 'filter contrast-125 transform hover:scale-105 transition-transform duration-700 ease-out opacity-90 mix-blend-multiply w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0 brightness-110',
-        'loading' => 'lazy',
+        'loading' => 'eager',
         'decoding' => 'async',
         'sizes' => '(min-width: 1024px) 58vw, 100vw',
       ]);
