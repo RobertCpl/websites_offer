@@ -5,6 +5,18 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MADEAPP | Strony bez kompromisów</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEL8JE83GM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LEL8JE83GM');
+  </script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -14,6 +26,7 @@
   </noscript>
   <?php wp_head(); ?>
 </head>
+
 
 <body <?php body_class('antialiased overflow-x-hidden selection:bg-amber-300 selection:text-amber-900 text-slate-900 bg-[#F3F0FF]'); ?>>
   <?php wp_body_open(); ?>
