@@ -2,9 +2,29 @@
   <section class="flex flex-col animate-enter delay-700 md:flex-row border-slate-300 border-t border-b pt-12 pb-12 gap-x-8 gap-y-8 items-center justify-between">
     <a href="#contact" class="flex items-center gap-4 group cursor-pointer">
       <div class="flex -space-x-4">
-        <img class="w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/user-1.jpg'); ?>" alt="User">
-        <img class="w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/user-2.jpg'); ?>" alt="User">
-        <img class="w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/avatar-320.jpg'); ?>" alt="User">
+        <?php
+        echo mypage_attachment_image_by_filename('user-1.webp', 'full', [
+          'alt' => 'User',
+          'class' => 'w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '48px',
+        ]);
+        echo mypage_attachment_image_by_filename('user-2.webp', 'full', [
+          'alt' => 'User',
+          'class' => 'w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '48px',
+        ]);
+        echo mypage_attachment_image_by_filename('avatar-320.webp', 'full', [
+          'alt' => 'User',
+          'class' => 'w-12 h-12 object-cover border-[#F3F0FF] border-2 rounded-full',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '48px',
+        ]);
+        ?>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-sm font-semibold text-[#000000]">Skontaktuj sie</span>

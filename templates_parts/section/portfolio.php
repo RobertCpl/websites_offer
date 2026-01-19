@@ -17,7 +17,15 @@
       <!-- Card 1 (Small) -->
       <article class="group md:col-span-1 overflow-hidden min-h-[400px] clay-card cursor-pointer rounded-[2.5rem] relative">
         <!-- Background Image -->
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/portfolio-lex.jpg'); ?>" alt="Kancelaria Prawna Website" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <?php
+        echo mypage_attachment_image_by_filename('portfolio-lex.webp', 'full', [
+          'alt' => 'Kancelaria Prawna Website',
+          'class' => 'absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '(min-width: 768px) 33vw, 100vw',
+        ]);
+        ?>
 
         <!-- Gradient Overlay for Readability -->
         <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -38,7 +46,15 @@
 
       <!-- Card 2 (Large) -->
       <article class="group md:col-span-2 overflow-hidden min-h-[400px] clay-card cursor-pointer rounded-[2.5rem] relative">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/portfolio-furniture.jpg'); ?>" alt="Furniture E-commerce" class="transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0">
+        <?php
+        echo mypage_attachment_image_by_filename('portfolio-furniture.webp', 'full', [
+          'alt' => 'Furniture E-commerce',
+          'class' => 'transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '(min-width: 768px) 67vw, 100vw',
+        ]);
+        ?>
         <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent"></div>
 
         <div class="flex flex-col pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-end">
@@ -68,7 +84,15 @@
 
       <!-- Card 3 (Large) -->
       <article class="group relative md:col-span-2 rounded-[2.5rem] overflow-hidden min-h-[400px] clay-card cursor-pointer">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/portfolio-saas.jpg'); ?>" alt="SaaS Dashboard" class="transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0">
+        <?php
+        echo mypage_attachment_image_by_filename('portfolio-saas.webp', 'full', [
+          'alt' => 'SaaS Dashboard',
+          'class' => 'transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '(min-width: 768px) 67vw, 100vw',
+        ]);
+        ?>
         <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent"></div>
 
         <div class="flex flex-col pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-end">
@@ -93,7 +117,15 @@
 
       <!-- Card 4 (Small) -->
       <article class="group relative md:col-span-1 rounded-[2.5rem] overflow-hidden min-h-[400px] clay-card cursor-pointer">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/portfolio-barber.jpg'); ?>" alt="Event Landing Page" class="transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0">
+        <?php
+        echo mypage_attachment_image_by_filename('portfolio-barber.webp', 'full', [
+          'alt' => 'Event Landing Page',
+          'class' => 'transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0',
+          'loading' => 'lazy',
+          'decoding' => 'async',
+          'sizes' => '(min-width: 768px) 33vw, 100vw',
+        ]);
+        ?>
         <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent"></div>
 
         <div class="flex flex-col pt-8 pr-8 pb-8 pl-8 absolute top-0 right-0 bottom-0 left-0 justify-end">

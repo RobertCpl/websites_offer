@@ -1,11 +1,19 @@
 // Entry point for Vite JS bundle.
 
-if (window.lucide?.createIcons) {
-  window.lucide.createIcons();
-}
+const initLucideIcons = () => {
+  const run = () => window.lucide?.createIcons?.();
+  // Schedule icon replacement after initial render to reduce main-thread contention.
+  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    window.requestIdleCallback(run, { timeout: 1500 });
+  } else {
+    setTimeout(run, 1);
+  }
+};
 
 // Pricing Calculation Logic
 document.addEventListener('DOMContentLoaded', () => {
+  initLucideIcons();
+
   const checkboxes = document.querySelectorAll('.addon-checkbox');
 
   checkboxes.forEach((checkbox) => {

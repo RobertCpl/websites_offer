@@ -32,11 +32,14 @@
 }
 
 @layer utilities {
-  .animate-enter {
+  .animate-hero {
+    opacity: 1;
     animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
   }
+  .animate-enter {
 
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
   .delay-100 {
     animation-delay: 0.1s;
   }

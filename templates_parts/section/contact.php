@@ -60,7 +60,15 @@
           </ul>
 
           <div class="mt-4 p-6 bg-slate-50 rounded-3xl border border-slate-100 flex gap-4 items-center">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/avatar-100.jpg'); ?>" alt="Avatar" class="w-12 h-12 object-cover border-white border-2 rounded-full shadow-sm">
+            <?php
+            echo mypage_attachment_image_by_filename('avatar-320.webp', 'full', [
+              'alt' => 'Avatar',
+              'class' => 'w-12 h-12 object-cover border-white border-2 rounded-full shadow-sm',
+              'loading' => 'lazy',
+              'decoding' => 'async',
+              'sizes' => '48px',
+            ]);
+            ?>
             <div class="">
               <p class="text-sm font-bold text-slate-900">Masz pytania?</p>
               <a href="mailto:kontakt@madeapp.pl" class="text-sm text-indigo-600 font-medium hover:underline">kontakt@madeapp.pl</a>

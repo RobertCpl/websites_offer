@@ -134,6 +134,53 @@ add_filter('script_loader_tag', function ($tag, $handle, $src) {
     return $tag;
 }, 10, 3);
 
+/**
+ * Renderowanie obrazków z Media Library po nazwie pliku (np. "hero-icon.webp").
+ *
+ * Do czego to jest:
+ * - W templatkach chcemy używać tylko `wp_get_attachment_image()` (żeby mieć `srcset` / `sizes`),
+ *   ale ta funkcja potrzebuje ID załącznika.
+ * - Ta funkcja wyszukuje ID załącznika po `_wp_attached_file` (czyli po ścieżce/nazwie w uploads)
+ *   i zwraca gotowy tag `<img>` z `wp_get_attachment_image()`.
+ *
+ * Jeśli nie znajdzie załącznika, zwraca pusty string (nie ma fallbacków do plików z motywu).
+ */
+if (!function_exists('mypage_attachment_image_by_filename')) {
+    function mypage_attachment_image_by_filename(string $filename, string $size = 'full', array $attr = []): string
+    {
+        $filename = trim($filename);
+        if ($filename === '') {
+            return '';
+        }
+
+        // Prosty cache w trakcie jednego requestu (żeby nie odpalać get_posts() kilka razy).
+        static $cache = [];
+        $cache_key = $filename . '|' . $size . '|' . md5(wp_json_encode($attr));
+        if (isset($cache[$cache_key])) {
+            return $cache[$cache_key];
+        }
+
+        $ids = get_posts([
+            'post_type' => 'attachment',
+            'post_status' => 'inherit',
+            'posts_per_page' => 1,
+            'fields' => 'ids',
+            'meta_query' => [[
+                'key' => '_wp_attached_file',
+                'value' => $filename,
+                'compare' => 'LIKE',
+            ]],
+        ]);
+
+        $html = !empty($ids[0])
+            ? (string) wp_get_attachment_image((int) $ids[0], $size, false, $attr)
+            : '';
+
+        $cache[$cache_key] = $html;
+        return $html;
+    }
+}
+
 add_action('phpmailer_init', function ($phpmailer) {
     $phpmailer->isSMTP();
     $phpmailer->Host = 'smtp.gmail.com';
