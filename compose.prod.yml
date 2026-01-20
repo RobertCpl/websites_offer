@@ -20,6 +20,7 @@ services:
     env_file: .env.prod
     volumes:
       - wp_uploads_mywebsite:/var/www/html/wp-content/uploads
+      - wp_plugins_mywebsite:/var/www/html/wp-content/plugins
     networks:
       - wordpress_network
       - nginx-proxy_internal-net
@@ -27,6 +28,7 @@ services:
 volumes:
   db_mywebsite:
   wp_uploads_mywebsite:
+  wp_plugins_mywebsite:
 networks:
   wordpress_network:
     driver: bridge
