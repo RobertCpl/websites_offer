@@ -1,0 +1,496 @@
+<html lang="pl" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MADEAPP - Strona Produktu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Syne:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    /* Custom Font Assignments */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* Smooth Entrance Animations */
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-enter {
+      animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    /* Claymorphism Shadows */
+    .clay-card {
+      box-shadow:
+        inset -10px -10px 20px rgba(174, 174, 192, 0.1),
+        inset 10px 10px 20px rgba(255, 255, 255, 0.8),
+        10px 20px 30px rgba(174, 174, 192, 0.15);
+    }
+
+    /* Utility for menu transition */
+    .menu-closed {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .menu-open {
+      max-height: 500px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hide number input arrows */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+  <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-geist">
+    .font-geist {
+      font-family: 'Geist', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-roboto">
+    .font-roboto {
+      font-family: 'Roboto', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-montserrat">
+    .font-montserrat {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-poppins">
+    .font-poppins {
+      font-family: 'Poppins', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap">
+  <style id="all-fonts-style-font-playfair">
+    .font-playfair {
+      font-family: 'Playfair Display', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-instrument-serif">
+    .font-instrument-serif {
+      font-family: 'Instrument Serif', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap">
+  <style id="all-fonts-style-font-merriweather">
+    .font-merriweather {
+      font-family: 'Merriweather', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-bricolage">
+    .font-bricolage {
+      font-family: 'Bricolage Grotesque', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+  <style id="all-fonts-style-font-jakarta">
+    .font-jakarta {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap">
+  <style id="all-fonts-style-font-manrope">
+    .font-manrope {
+      font-family: 'Manrope', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-space-grotesk">
+    .font-space-grotesk {
+      font-family: 'Space Grotesk', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap">
+  <style id="all-fonts-style-font-work-sans">
+    .font-work-sans {
+      font-family: 'Work Sans', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
+  <style id="all-fonts-style-font-pt-serif">
+    .font-pt-serif {
+      font-family: 'PT Serif', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-geist-mono">
+    .font-geist-mono {
+      font-family: 'Geist Mono', monospace !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap">
+  <style id="all-fonts-style-font-space-mono">
+    .font-space-mono {
+      font-family: 'Space Mono', monospace !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-quicksand">
+    .font-quicksand {
+      font-family: 'Quicksand', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap">
+  <style id="all-fonts-style-font-nunito">
+    .font-nunito {
+      font-family: 'Nunito', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap">
+  <style id="all-fonts-style-font-newsreader">
+    .font-newsreader {
+      font-family: 'Newsreader', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-google-sans-flex">
+    .font-google-sans-flex {
+      font-family: 'Google Sans Flex', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-oswald">
+    .font-oswald {
+      font-family: 'Oswald', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-dm-sans">
+    .font-dm-sans {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap">
+  <style id="all-fonts-style-font-cormorant">
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif !important;
+    }
+  </style>
+</head>
+
+<body class="antialiased overflow-x-hidden selection:bg-amber-300 selection:text-amber-900 text-slate-900 bg-[#F3F0FF]">
+  <!-- Navigation (Kept original structure) -->
+  <nav class="lg:px-12 flex animate-enter w-full max-w-[1600px] mr-auto ml-auto pt-8 pr-6 pb-8 pl-6 relative items-center justify-between z-50">
+    <div class="flex gap-3 items-center z-50">
+      <div class="flex text-xl font-bold text-white font-['Syne'] bg-black w-16 h-16 rounded-full items-center justify-center">
+        mda
+      </div>
+      <span class="uppercase text-xl font-bold tracking-tight font-['Syne']">
+          madeapp
+        </span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex gap-8 text-[15px] font-medium gap-x-8 gap-y-8 items-center text-slate-600">
+      <a href="#" class="transition-colors hover:text-black">SKLEP</a>
+      <a href="#" class="transition-colors hover:text-black">KATEGORIE</a>
+      <a href="#" class="transition-colors hover:text-black">O NAS</a>
+    </div>
+
+    <!-- Right Side Actions -->
+    <div class="flex items-center gap-4 z-50">
+      <a href="#cart" class="hidden lg:flex hover:scale-105 transition-transform text-sm font-semibold text-white tracking-wide bg-black rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-1.5 gap-y-1.5 items-center">
+        Koszyk (0)
+      </a>
+
+      <!-- Hamburger Icon -->
+      <button class="lg:hidden flex flex-col focus:outline-none w-10 h-10 gap-1.5 items-center justify-center relative z-50" aria-label="Toggle menu" id="hamburger-btn">
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="flex flex-col overflow-hidden transition-all duration-500 ease-in-out lg:hidden bg-[#F3F0FF] border-slate-200 border-b absolute top-full left-0 w-full shadow-xl gap-x-6 gap-y-6 items-center menu-closed z-40" id="mobile-menu">
+      <div class="flex flex-col w-full pt-8 pb-8 gap-x-6 gap-y-6 items-center">
+        <a href="#" class="mobile-link text-lg font-medium hover:text-black py-2">SKLEP</a>
+        <a href="#" class="mobile-link text-lg font-medium hover:text-black py-2">KATEGORIE</a>
+        <a href="#" class="mobile-link text-lg font-medium hover:text-black py-2">KONTAKT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main class="lg:px-12 max-w-[1600px] mr-auto ml-auto pt-8 pr-4 pb-20 pl-4">
+
+    <!-- 1. PRODUCT HERO SECTION -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:gap-20 animate-enter delay-100 gap-x-12 gap-y-12 items-start">
+
+      <!-- Left Column: Images -->
+      <div class="flex flex-col gap-6">
+        <!-- Main Image -->
+        <div class="w-full clay-card rounded-[3rem] overflow-hidden aspect-[4/5] relative bg-white group cursor-zoom-in">
+          <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&amp;w=2787&amp;auto=format&amp;fit=crop" alt="Główne zdjęcie produktu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="grid grid-cols-4 gap-4">
+          <button class="aspect-square rounded-[1.5rem] overflow-hidden border-2 border-black clay-card transition-transform hover:scale-95">
+              <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Thumb 1">
+            </button>
+          <button class="aspect-square rounded-[1.5rem] overflow-hidden border border-transparent hover:border-slate-300 clay-card transition-all hover:scale-95">
+              <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Thumb 2">
+            </button>
+          <button class="aspect-square rounded-[1.5rem] overflow-hidden border border-transparent hover:border-slate-300 clay-card transition-all hover:scale-95">
+              <img src="https://images.unsplash.com/photo-1503602642458-23211144584b?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Thumb 3">
+            </button>
+          <button class="aspect-square rounded-[1.5rem] overflow-hidden border border-transparent hover:border-slate-300 clay-card transition-all hover:scale-95 relative">
+              <img src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?q=80&amp;w=300&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover opacity-70" alt="Thumb 4">
+               <span class="absolute inset-0 flex items-center justify-center font-['Syne'] font-bold text-lg">+2</span>
+            </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Details -->
+      <div class="flex flex-col pt-4 lg:sticky lg:top-8">
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-[11px] uppercase font-bold text-slate-500 tracking-wide bg-white border border-slate-200 rounded-full px-3 py-1">
+                  Design
+                </span>
+          <span class="text-[11px] uppercase font-bold text-slate-500 tracking-wide bg-white border border-slate-200 rounded-full px-3 py-1">
+                  Premium
+                </span>
+          <span class="text-[11px] uppercase font-bold text-amber-600 tracking-wide bg-amber-50 border border-amber-200 rounded-full px-3 py-1 flex items-center gap-1">
+                   <iconify-icon icon="solar:star-bold" width="12"></iconify-icon> 4.9/5
+                </span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="leading-tight lg:text-4xl text-4xl font-bold text-slate-900 tracking-tight mb-4">
+          Fotel "Lounge 2024"
+        </h1>
+
+        <!-- Short Desc -->
+        <p class="leading-relaxed text-base font-light text-slate-500 max-w-xl mb-8">
+          Ikona współczesnego designu. Wykonany ręcznie z najwyższej jakości drewna dębowego i tapicerowany naturalną
+          tkaniną lnianą. Idealny balans między formą a funkcją.
+        </p>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-slate-200 mb-8"></div>
+
+        <!-- Price -->
+        <div class="flex items-end gap-3 mb-8">
+          <span class="text-4xl font-bold font-['Syne'] text-slate-900 tracking-tight">2 499 zł</span>
+          <span class="text-lg text-slate-400 line-through mb-1.5 font-medium">3 200 zł</span>
+        </div>
+
+        <!-- Actions Row -->
+        <div class="flex flex-col lg:flex-row gap-4">
+          <!-- Quantity Selector -->
+          <div class="flex bg-white border-slate-200 border rounded-full p-2 shadow-sm items-center justify-between">
+            <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-600">
+                        <iconify-icon icon="solar:minus-circle-linear" width="24" stroke-width="1.5"></iconify-icon>
+                    </button>
+            <input type="number" value="1" class="w-10 text-center bg-transparent font-bold text-lg focus:outline-none" readonly="">
+            <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-900">
+                        <iconify-icon icon="solar:add-circle-linear" width="24" stroke-width="1.5"></iconify-icon>
+                    </button>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button class="flex-1 bg-black text-white rounded-full flex items-center justify-center gap-3 p-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-slate-200/50 group">
+                    <span class="text-base font-bold uppercase tracking-widest">Dodaj do koszyka</span>
+                    <iconify-icon icon="solar:cart-large-2-linear" width="24" stroke-width="1.5" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </button>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- 2. FULL WIDTH DESCRIPTION SECTION -->
+    <section class="mt-20 lg:mt-32 w-full animate-enter delay-200">
+      <div class="clay-card bg-white rounded-[3rem] p-8 lg:p-16 relative overflow-hidden">
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+          <span class="uppercase text-sm font-bold text-slate-400 tracking-widest mb-2 block">Specyfikacja</span>
+          <h2 class="text-3xl lg:text-4xl font-bold mb-8">Szczegóły, które robią różnicę</h2>
+
+          <div class="prose prose-lg text-slate-600 font-light font-['Inter'] leading-relaxed">
+            <p class="mb-6">
+              Fotel Lounge 2024 to nie tylko mebel, to deklaracja stylu. Zaprojektowany z myślą o przestrzeniach, które
+              cenią minimalizm, ale nie chcą rezygnować z przytulności. Konstrukcja opiera się na litym drewnie dębowym,
+              które jest sezonowane przez minimum 5 lat, co gwarantuje jego trwałość i odporność na odkształcenia.
+            </p>
+            <p class="mb-10">
+              Siedzisko wypełnione jest wysokogatunkową pianką termoelastyczną, która dopasowuje się do kształtu ciała,
+              zapewniając niezrównany komfort podczas długich wieczorów z książką. Tapicerka wykonana jest z
+              certyfikowanego lnu belgijskiego, który jest materiałem oddychającym, hipoalergicznym i niezwykle
+              przyjemnym w dotyku.
+            </p>
+          </div>
+      </div>
+    </div></section>
+
+    <!-- Similar Products (Bonus Section keeping original styles) -->
+    <section class="mt-20 lg:mt-32 mb-12 animate-enter delay-200">
+      <h3 class="text-2xl font-bold mb-8 pl-4">Może Ci się spodobać</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="group clay-card bg-white rounded-[2.5rem] p-6 cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+          <div class="rounded-[2rem] overflow-hidden aspect-[4/3] mb-6 relative">
+            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Chair">
+          </div>
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-lg font-bold mb-1">Krzesło Modern</h4>
+              <p class="text-sm text-slate-500">Salon / Jadalnia</p>
+            </div>
+            <span class="text-lg font-bold">899 zł</span>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="group clay-card bg-white rounded-[2.5rem] p-6 cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+          <div class="rounded-[2rem] overflow-hidden aspect-[4/3] mb-6 relative">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Sofa">
+          </div>
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-lg font-bold mb-1">Sofa Green</h4>
+              <p class="text-sm text-slate-500">Salon</p>
+            </div>
+            <span class="text-lg font-bold">4 200 zł</span>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="group clay-card bg-white rounded-[2.5rem] p-6 cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+          <div class="rounded-[2rem] overflow-hidden aspect-[4/3] mb-6 relative">
+            <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Lamp">
+          </div>
+          <div class="flex justify-between items-start">
+            <div>
+              <h4 class="text-lg font-bold mb-1">Lampa Standing</h4>
+              <p class="text-sm text-slate-500">Oświetlenie</p>
+            </div>
+            <span class="text-lg font-bold">650 zł</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 mt-12 bg-[#F3F0FF]">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Left: Logo & Brand -->
+      <div class="flex items-center gap-3">
+        <div class="flex text-lg font-bold text-white font-['Syne'] bg-black w-14 h-14 rounded-full items-center justify-center">
+          mda
+        </div>
+        <span class="uppercase text-lg font-bold tracking-tight font-['Syne']">
+            madeapp
+          </span>
+      </div>
+
+      <!-- Right: Copyright -->
+      <div class="text-sm font-medium text-slate-500 font-['Inter'] text-center md:text-right">
+        © 2024 madeapp. Wszelkie prawa zastrzeżone.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle Script
+      document.addEventListener('DOMContentLoaded', () => {
+          const menuBtn = document.getElementById('hamburger-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+          const spans = menuBtn ? menuBtn.querySelectorAll('span') : [];
+          let isMenuOpen = false;
+
+          function closeMenu() {
+              isMenuOpen = false;
+              if (spans.length >= 3) {
+                  spans[0].classList.remove('rotate-45', 'translate-y-2');
+                  spans[1].classList.remove('opacity-0');
+                  spans[2].classList.remove('-rotate-45', '-translate-y-2');
+              }
+              if (mobileMenu) {
+                  mobileMenu.classList.remove('menu-open');
+                  mobileMenu.classList.add('menu-closed');
+              }
+          }
+
+          function toggleMenu() {
+              if (isMenuOpen) {
+                  closeMenu();
+              } else {
+                  isMenuOpen = true;
+                  if (spans.length >= 3) {
+                      spans[0].classList.add('rotate-45', 'translate-y-2');
+                      spans[1].classList.add('opacity-0');
+                      spans[2].classList.add('-rotate-45', '-translate-y-2');
+                  }
+                  if (mobileMenu) {
+                      mobileMenu.classList.remove('menu-closed');
+                      mobileMenu.classList.add('menu-open');
+                  }
+              }
+          }
+
+          if (menuBtn) {
+              menuBtn.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  toggleMenu();
+              });
+          }
+
+          mobileLinks.forEach(link => {
+              link.addEventListener('click', closeMenu);
+          });
+      });
+  </script>
+
+
+
+
+
+
+
+</body></html>

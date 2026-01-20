@@ -14,6 +14,61 @@ const initLucideIcons = () => {
 document.addEventListener('DOMContentLoaded', () => {
   initLucideIcons();
 
+  const quantitySelectors = document.querySelectorAll('[data-quantity-selector]');
+  quantitySelectors.forEach((selector) => {
+    const input = selector.querySelector('input[name="quantity"]');
+    if (!input) {
+      return;
+    }
+
+    const getNumber = (value) => {
+      const parsed = Number.parseFloat(value);
+      return Number.isNaN(parsed) ? null : parsed;
+    };
+
+    const min = getNumber(input.min) ?? 1;
+    const step = getNumber(input.step) ?? 1;
+    const max = getNumber(input.max);
+
+    const clampValue = (value) => {
+      let next = value;
+      if (Number.isFinite(max) && max > 0) {
+        next = Math.min(next, max);
+      }
+      return Math.max(next, min);
+    };
+
+    const updateButtons = () => {
+      const value = getNumber(input.value) ?? min;
+      const decButton = selector.querySelector('[data-quantity-action="decrease"]');
+      const incButton = selector.querySelector('[data-quantity-action="increase"]');
+      if (decButton) {
+        decButton.disabled = value <= min;
+        decButton.classList.toggle('opacity-40', value <= min);
+      }
+      if (incButton && Number.isFinite(max) && max > 0) {
+        incButton.disabled = value >= max;
+        incButton.classList.toggle('opacity-40', value >= max);
+      }
+    };
+
+    selector.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-quantity-action]');
+      if (!button) {
+        return;
+      }
+      event.preventDefault();
+      const current = getNumber(input.value) ?? min;
+      const action = button.dataset.quantityAction;
+      const delta = action === 'decrease' ? -step : step;
+      input.value = clampValue(current + delta);
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+      updateButtons();
+    });
+
+    updateButtons();
+  });
+
   const checkboxes = document.querySelectorAll('.addon-checkbox');
 
   checkboxes.forEach((checkbox) => {
