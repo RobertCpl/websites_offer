@@ -85,4 +85,15 @@
     opacity: 1;
     pointer-events: auto;
   }
+
+  .shop-bento-item {
+    grid-column: span 1 / span 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .shop-bento-item:nth-child(4n + 2),
+  .shop-bento-item:nth-child(4n + 3) {
+    grid-column: span 2 / span 2;
+  }
 }
