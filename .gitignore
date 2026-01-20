@@ -4,3 +4,4 @@
 /.cursor
 /.vscode
 /compose.test.yml
+.DS_Store
