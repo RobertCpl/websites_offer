@@ -34,6 +34,10 @@
   <!-- Navigation -->
   <nav class="lg:px-12 flex animate-enter w-full max-w-[1600px] mr-auto ml-auto pt-8 pr-6 pb-8 pl-6 relative items-center justify-between z-50">
     <?php
+    $shop_url = function_exists('wc_get_page_permalink')
+      ? call_user_func('wc_get_page_permalink', 'shop')
+      : get_post_type_archive_link('product');
+
     get_template_part('templates_parts/components/brand-mark', null, [
       'wrapper_class' => 'flex gap-3 items-center z-50',
       'badge_class' => "flex text-xl font-bold text-white font-['Syne'] bg-black w-16 h-16 rounded-full items-center justify-center",
@@ -43,9 +47,10 @@
 
     <!-- Desktop Menu -->
     <div class="hidden lg:flex gap-8 text-[15px] font-medium gap-x-8 gap-y-8 items-center text-slate-600">
-      <a href="#cennik" class="transition-colors hover:text-black">OFERTA</a>
-      <a href="#co-robie" class="transition-colors hover:text-black">CO ROBIE</a>
-      <a href="#technologie" class="transition-colors hover:text-black">TECHNOLOGIE</a>
+      <a href="<?php echo esc_url(home_url('/#cennik')); ?>" class="transition-colors hover:text-black">OFERTA</a>
+      <a href="<?php echo esc_url(home_url('/#co-robie')); ?>" class="transition-colors hover:text-black">CO ROBIE</a>
+      <a href="<?php echo esc_url(home_url('/#technologie')); ?>" class="transition-colors hover:text-black">TECHNOLOGIE</a>
+      <a href="<?php echo esc_url($shop_url); ?>" class="transition-colors hover:text-black">SKLEP</a>
     </div>
 
     <!-- Right Side Actions (Button + Hamburger) -->
@@ -64,9 +69,10 @@
     <!-- Mobile Dropdown Menu -->
     <div class="flex flex-col overflow-hidden transition-all duration-500 ease-in-out lg:hidden bg-[#F3F0FF] border-slate-200 border-b absolute top-full left-0 w-full shadow-xl gap-x-6 gap-y-6 items-center menu-closed z-40" id="mobile-menu">
       <div class="flex flex-col w-full pt-8 pb-8 gap-x-6 gap-y-6 items-center">
-        <a href="#cennik" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">OFERTA</a>
-        <a href="#co-robie" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">CO ROBIE</a>
-        <a href="#technologie" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">TECHNOLOGIE</a>
+        <a href="<?php echo esc_url(home_url('/#cennik')); ?>" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">OFERTA</a>
+        <a href="<?php echo esc_url(home_url('/#co-robie')); ?>" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">CO ROBIE</a>
+        <a href="<?php echo esc_url(home_url('/#technologie')); ?>" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">TECHNOLOGIE</a>
+        <a href="<?php echo esc_url($shop_url); ?>" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black text-black">SKLEP</a>
         <a href="#contact" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">KONTAKT</a>
       </div>
     </div>
