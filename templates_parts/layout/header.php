@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MADEAPP | Strony bez kompromisów</title>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEL8JE83GM"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEL8JE83GM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -16,7 +16,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-LEL8JE83GM');
-  </script>
+  </script> -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -57,6 +57,33 @@
     <div class="flex items-center gap-4 z-50">
       <!-- Changed button to anchor for smooth scroll -->
       <a href="#contact" class="hidden lg:flex hover:scale-105 transition-transform text-sm font-semibold text-white tracking-wide bg-black rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-1.5 gap-y-1.5 items-center">Kontakt</a>
+
+      <?php if (function_exists('WC')) : ?>
+        <!-- `.woocommerce` ensures WooCommerce mini-cart selectors apply on non-shop pages. -->
+        <div class="relative woocommerce" data-mini-cart-root>
+          <button type="button" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/60 transition-colors" aria-label="<?php echo esc_attr__('Koszyk', 'mypage'); ?>" aria-haspopup="dialog" aria-expanded="false" data-mini-cart-toggle>
+            <span class="sr-only"><?php echo esc_html__('Otwórz koszyk', 'mypage'); ?></span>
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <?php
+            if (function_exists('mypage_cart_count_html')) {
+              echo mypage_cart_count_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            ?>
+          </button>
+
+          <div class="hidden absolute -right-14 md:right-0 mt-3 w-xs md:w-96 max-w-[90vw] bg-white border border-slate-200 rounded-2xl shadow-xl p-4 z-50" data-mini-cart-dropdown>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm font-semibold"><?php echo esc_html__('Koszyk', 'mypage'); ?></span>
+            </div>
+
+            <?php
+            if (function_exists('mypage_mini_cart_html')) {
+              echo mypage_mini_cart_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            }
+            ?>
+          </div>
+        </div>
+      <?php endif; ?>
 
       <!-- Hamburger Icon -->
       <button class="lg:hidden flex flex-col focus:outline-none w-10 h-10 gap-1.5 items-center justify-center relative z-50" aria-label="Toggle menu" id="hamburger-btn">

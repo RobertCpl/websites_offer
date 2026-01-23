@@ -1,5 +1,8 @@
 // Entry point for Vite JS bundle.
 
+import './add-to-cart-ajax.js';
+import './mini-cart-dropdown.js';
+
 const initLucideIcons = () => {
   const run = () => window.lucide?.createIcons?.();
   // Schedule icon replacement after initial render to reduce main-thread contention.

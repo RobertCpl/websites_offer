@@ -1,5 +1,7 @@
 <?php
 
+require_once get_stylesheet_directory() . '/inc/woocommerce/cart.php';
+
 // WooCommerce support (Shop, product archives, single products).
 add_action('after_setup_theme', function () {
     add_theme_support('woocommerce');

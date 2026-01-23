@@ -1,0 +1,46 @@
+[21-Jan-2026 19:25:26 UTC] === woocommerce_add_to_cart_quantity === RID=1769023526.7334-3520
+[21-Jan-2026 19:25:26 UTC] woocommerce_add_to_cart_quantity product_id=28 qty=1
+[21-Jan-2026 19:25:26 UTC] trace[0] {closure} /var/www/html/wp-includes/class-wp-hook.php:341
+[21-Jan-2026 19:25:26 UTC] trace[1] apply_filters /var/www/html/wp-includes/plugin.php:205
+[21-Jan-2026 19:25:26 UTC] trace[2] apply_filters /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-cart.php:1074
+[21-Jan-2026 19:25:26 UTC] trace[3] add_to_cart /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:500
+[21-Jan-2026 19:25:26 UTC] trace[4] add_to_cart /var/www/html/wp-includes/class-wp-hook.php:341
+[21-Jan-2026 19:25:26 UTC] trace[5] apply_filters /var/www/html/wp-includes/class-wp-hook.php:365
+[21-Jan-2026 19:25:26 UTC] === woocommerce_add_to_cart === RID=1769023526.7334-8995
+[21-Jan-2026 19:25:26 UTC] product_id=28 variation_id=0 qty=1 cart_item_key=33e75ff09dd601bbe69f351039152189
+[21-Jan-2026 19:25:26 UTC] uri=/?wc-ajax=add_to_cart
+[21-Jan-2026 19:25:26 UTC] is_ajax=1
+[21-Jan-2026 19:25:26 UTC] referrer=http://localhost:8080/shop/hari-salon/
+[21-Jan-2026 19:25:26 UTC] trace[0] {closure} /var/www/html/wp-includes/class-wp-hook.php:341
+[21-Jan-2026 19:25:26 UTC] trace[1] apply_filters /var/www/html/wp-includes/class-wp-hook.php:365
+[21-Jan-2026 19:25:26 UTC] trace[2] do_action /var/www/html/wp-includes/plugin.php:522
+[21-Jan-2026 19:25:26 UTC] trace[3] do_action /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-cart.php:1343
+[21-Jan-2026 19:25:26 UTC] trace[4] add_to_cart /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:500
+[21-Jan-2026 19:25:26 UTC] trace[5] add_to_cart /var/www/html/wp-includes/class-wp-hook.php:341
+[21-Jan-2026 19:25:26 UTC] === woocommerce_ajax_added_to_cart === RID=1769023526.7334-7533
+[21-Jan-2026 19:25:26 UTC] product_id=28
+[21-Jan-2026 19:25:26 UTC] uri=/?wc-ajax=add_to_cart
+[21-Jan-2026 19:25:26 UTC] is_ajax=1
+[22-Jan-2026 09:08:16 UTC] === woocommerce_add_to_cart_quantity === RID=1769072896.4423-6111
+[22-Jan-2026 09:08:16 UTC] woocommerce_add_to_cart_quantity product_id=24 qty=1
+[22-Jan-2026 09:08:16 UTC] trace[0] {closure} /var/www/html/wp-includes/class-wp-hook.php:341
+[22-Jan-2026 09:08:16 UTC] trace[1] apply_filters /var/www/html/wp-includes/plugin.php:205
+[22-Jan-2026 09:08:16 UTC] trace[2] apply_filters /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-cart.php:1074
+[22-Jan-2026 09:08:16 UTC] trace[3] add_to_cart /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:500
+[22-Jan-2026 09:08:16 UTC] trace[4] add_to_cart /var/www/html/wp-includes/class-wp-hook.php:341
+[22-Jan-2026 09:08:16 UTC] trace[5] apply_filters /var/www/html/wp-includes/class-wp-hook.php:365
+[22-Jan-2026 09:08:16 UTC] === woocommerce_add_to_cart === RID=1769072896.4423-4333
+[22-Jan-2026 09:08:16 UTC] product_id=24 variation_id=0 qty=1 cart_item_key=1ff1de774005f8da13f42943881c655f
+[22-Jan-2026 09:08:16 UTC] uri=/?wc-ajax=add_to_cart
+[22-Jan-2026 09:08:16 UTC] is_ajax=1
+[22-Jan-2026 09:08:16 UTC] referrer=http://localhost:8080/shop/strona-www-beauty-salon/
+[22-Jan-2026 09:08:16 UTC] trace[0] {closure} /var/www/html/wp-includes/class-wp-hook.php:341
+[22-Jan-2026 09:08:16 UTC] trace[1] apply_filters /var/www/html/wp-includes/class-wp-hook.php:365
+[22-Jan-2026 09:08:16 UTC] trace[2] do_action /var/www/html/wp-includes/plugin.php:522
+[22-Jan-2026 09:08:16 UTC] trace[3] do_action /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-cart.php:1343
+[22-Jan-2026 09:08:16 UTC] trace[4] add_to_cart /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:500
+[22-Jan-2026 09:08:16 UTC] trace[5] add_to_cart /var/www/html/wp-includes/class-wp-hook.php:341
+[22-Jan-2026 09:08:16 UTC] === woocommerce_ajax_added_to_cart === RID=1769072896.4423-5709
+[22-Jan-2026 09:08:16 UTC] product_id=24
+[22-Jan-2026 09:08:16 UTC] uri=/?wc-ajax=add_to_cart
+[22-Jan-2026 09:08:16 UTC] is_ajax=1

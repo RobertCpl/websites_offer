@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Fallback template.
+ * Default page template.
  *
- * This theme previously had an empty `index.php`, which caused regular pages
- * (including WooCommerce Cart/Checkout pages) to render blank.
+ * Needed for rendering normal WordPress pages. WooCommerce Cart/Checkout are pages too,
+ * so without this template they would fall back to an empty `index.php` and appear blank.
  */
 defined('ABSPATH') || exit;
 
@@ -20,8 +20,6 @@ get_template_part('templates_parts/layout/header');
           <?php the_content(); ?>
         </div>
       <?php endwhile; ?>
-    <?php else : ?>
-      <h1 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight"><?php esc_html_e('Brak treści', 'mypage'); ?></h1>
     <?php endif; ?>
   </section>
 </main>

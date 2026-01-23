@@ -12,7 +12,7 @@ get_template_part('templates_parts/layout/header');
 
 <main class="lg:px-12 max-w-[1600px] mr-auto ml-auto pt-8 pr-4 pb-20 pl-4">
   <?php
-  do_action('woocommerce_before_single_product');
+  // do_action('woocommerce_before_single_product');
 
   while (have_posts()) :
     the_post();
@@ -126,42 +126,38 @@ get_template_part('templates_parts/layout/header');
         </div>
 
         <div class="flex flex-col lg:flex-row gap-4">
-          <?php if ($product->is_type('simple')) : ?>
-            <form class="cart flex flex-1 flex-col lg:flex-row gap-4" method="post" enctype="multipart/form-data" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>">
-              <div class="flex bg-white border-slate-200 border rounded-full p-2 shadow-sm items-center justify-between">
-                <?php
-                $min_qty = $product->get_min_purchase_quantity();
-                $max_qty = $product->get_max_purchase_quantity();
-                $input_value = $min_qty;
-                $max_attr = $max_qty > 0 ? $max_qty : '';
-                ?>
-                <div class="flex w-full items-center justify-between" data-quantity-selector>
-                  <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-600" data-quantity-action="decrease" aria-label="<?php echo esc_attr__('Zmniejsz ilosc', 'mypage'); ?>">
-                    <span class="text-xl font-bold">-</span>
-                  </button>
-                  <input
-                    type="number"
-                    name="quantity"
-                    min="<?php echo esc_attr($min_qty); ?>"
-                    <?php if ($max_attr !== '') : ?>
-                    max="<?php echo esc_attr($max_attr); ?>"
-                    <?php endif; ?>
-                    step="1"
-                    value="<?php echo esc_attr($input_value); ?>"
-                    class="w-10 text-center bg-transparent font-bold text-lg focus:outline-none"
-                    readonly />
-                  <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-900" data-quantity-action="increase" aria-label="<?php echo esc_attr__('Zwieksz ilosc', 'mypage'); ?>">
-                    <span class="text-xl font-bold">+</span>
-                  </button>
-                </div>
+          <form class="cart flex flex-1 flex-col lg:flex-row gap-4" method="post" enctype="multipart/form-data" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>">
+            <div class="flex bg-white border-slate-200 border rounded-full p-2 shadow-sm items-center justify-between">
+              <?php
+              $min_qty = $product->get_min_purchase_quantity();
+              $max_qty = $product->get_max_purchase_quantity();
+              $input_value = $min_qty;
+              $max_attr = $max_qty > 0 ? $max_qty : '';
+              ?>
+              <div class="flex w-full items-center justify-between" data-quantity-selector>
+                <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-600" data-quantity-action="decrease" aria-label="<?php echo esc_attr__('Zmniejsz ilosc', 'mypage'); ?>">
+                  <span class="text-xl font-bold">-</span>
+                </button>
+                <input
+                  type="number"
+                  name="quantity"
+                  min="<?php echo esc_attr($min_qty); ?>"
+                  <?php if ($max_attr !== '') : ?>
+                  max="<?php echo esc_attr($max_attr); ?>"
+                  <?php endif; ?>
+                  step="1"
+                  value="<?php echo esc_attr($input_value); ?>"
+                  class="w-10 text-center bg-transparent font-bold text-lg focus:outline-none"
+                  readonly />
+                <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-900" data-quantity-action="increase" aria-label="<?php echo esc_attr__('Zwieksz ilosc', 'mypage'); ?>">
+                  <span class="text-xl font-bold">+</span>
+                </button>
               </div>
-              <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button flex-1 bg-black text-white rounded-full flex items-center justify-center gap-3 p-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-slate-200/50 group">
-                <span class="text-base font-bold uppercase tracking-widest"><?php echo esc_html($product->single_add_to_cart_text()); ?></span>
-              </button>
-            </form>
-          <?php else : ?>
-            <?php woocommerce_template_single_add_to_cart(); ?>
-          <?php endif; ?>
+            </div>
+            <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button flex-1 bg-black text-white rounded-full flex items-center justify-center gap-3 p-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-slate-200/50 group">
+              <span class="text-base tracking-widest"><?php echo esc_html($product->single_add_to_cart_text()); ?></span>
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -183,6 +179,7 @@ get_template_part('templates_parts/layout/header');
         </div>
       </div>
     </section>
+
     <?php do_action('woocommerce_after_single_product'); ?>
   <?php endwhile; ?>
 </main>
