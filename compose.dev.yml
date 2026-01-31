@@ -3,15 +3,22 @@ services:
     image: mysql:8.0
     container_name: mysql
     restart: unless-stopped
+    env_file:
+      - .env.dev
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: robert
-      MYSQL_PASSWORD: robert
-      MYSQL_ROOT_PASSWORD: robert
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-robert}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-robert}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-robert}
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "$$MYSQL_USER", "-p$$MYSQL_PASSWORD"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
     networks:
       - wordpress_network
 
@@ -19,23 +26,28 @@ services:
     image: wordpress:latest
     container_name: wordpress_app
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     restart: unless-stopped
+    env_file:
+      - .env.dev
     ports:
       - 8080:80
     environment:
       WORDPRESS_DB_HOST: mysql:3306 # mysql container name
-      WORDPRESS_DB_USER: robert
-      WORDPRESS_DB_PASSWORD: robert
-      WORDPRESS_DB_NAME: wordpress
-      # Enable WordPress debug mode (maps to WP_DEBUG in wp-config.php for the official image)
+      WORDPRESS_DB_USER: ${MYSQL_USER:-robert}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-robert}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('WP_HOME', 'http://localhost:8080');
+        define('WP_SITEURL', 'http://localhost:8080');
       WORDPRESS_DEBUG: "1"
-      GMAIL_APP_PASSWORD: "nkfs oufn ftto vpqo"
-    command: bash -c "mkdir -p /var/www/html/wp-content/themes/mypage && docker-entrypoint.sh apache2-foreground"
+      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD:-}
     volumes:
-      - ./:/var/www/html/wp-content/themes/mypage
-      - wp_uploads:/var/www/html/wp-content/uploads
-      - wp_plugins:/var/www/html/wp-content/plugins
+      - ./wp-content:/var/www/html/wp-content
     networks:
       - wordpress_network
 
@@ -43,25 +55,25 @@ services:
     image: wordpress:cli
     container_name: wpcli
     depends_on:
-      - mysql
-      - wordpress
+      mysql:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    env_file:
+      - .env.dev
     environment:
       WORDPRESS_DB_HOST: mysql:3306
-      WORDPRESS_DB_USER: robert
-      WORDPRESS_DB_PASSWORD: robert
-      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: ${MYSQL_USER:-robert}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-robert}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
       WORDPRESS_DEBUG: "1"
     volumes:
-      - ./:/var/www/html/wp-content/themes/mypage
-      - wp_uploads:/var/www/html/wp-content/uploads
-      - wp_plugins:/var/www/html/wp-content/plugins
+      - ./wp-content:/var/www/html/wp-content
     networks:
       - wordpress_network
 
 volumes:
   db_data:
-  wp_uploads:
-  wp_plugins:
 
 
 networks:
