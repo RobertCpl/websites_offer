@@ -15,3 +15,5 @@ wp-content/themes/*
 !wp-content/themes/mypage
 !wp-content/themes/mypage/**
 db.sql
+mywebsite.db
+debug.log
