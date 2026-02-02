@@ -15,9 +15,12 @@ services:
     depends_on:
       - mysql
     restart: unless-stopped
-    # ports:
-    #   - 8080:80
+    command: >
+      bash -lc "chown -R www-data:www-data /var/www/html/wp-content/uploads &&
+      exec docker-entrypoint.sh apache2-foreground"
     env_file: .env.prod
+    environment:
+      WORDPRESS_CONFIG_EXTRA: "define('WP_HOME','https://madeapp.pl'); define('WP_SITEURL','https://madeapp.pl');"
     volumes:
       - wp_uploads_mywebsite:/var/www/html/wp-content/uploads
     networks:

@@ -1,0 +1,338 @@
+<html lang="pl" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADEAPP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Syne:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+      /* Custom Font Assignments */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Syne', sans-serif;
+      }
+
+      /* Smooth Entrance Animations */
+      @keyframes slideUpFade {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-enter {
+        animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      /* Claymorphism Shadows */
+      .clay-card {
+        box-shadow:
+          inset -10px -10px 20px rgba(174, 174, 192, 0.1),
+          inset 10px 10px 20px rgba(255, 255, 255, 0.8),
+          10px 20px 30px rgba(174, 174, 192, 0.15);
+      }
+
+      /* Utility for menu transition */
+      .menu-closed {
+          max-height: 0;
+          opacity: 0;
+          pointer-events: none;
+      }
+      .menu-open {
+          max-height: 500px;
+          opacity: 1;
+          pointer-events: auto;
+      }
+    </style>
+  <link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link id="all-fonts-link-font-newsreader" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap"><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link id="all-fonts-link-font-google-sans-flex" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link id="all-fonts-link-font-oswald" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link id="all-fonts-link-font-dm-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link id="all-fonts-link-font-cormorant" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style></head>
+
+  <body class="antialiased overflow-x-hidden selection:bg-amber-300 selection:text-amber-900 text-slate-900 bg-[#F3F0FF]">
+    <!-- Navigation (Bez zmian) -->
+    <nav class="lg:px-12 flex animate-enter w-full max-w-[1600px] mr-auto ml-auto pt-8 pr-6 pb-8 pl-6 relative items-center justify-between z-50">
+      <div class="flex gap-3 items-center z-50">
+        <div class="flex text-xl font-bold text-white font-['Syne'] bg-black w-16 h-16 rounded-full items-center justify-center">
+          mda
+        </div>
+        <span class="uppercase text-xl font-bold tracking-tight font-['Syne']">
+          madeapp
+        </span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex gap-8 text-[15px] font-medium items-center text-slate-600">
+        <a href="#oferta" class="transition-colors hover:text-black">OFERTA</a>
+        <a href="#realizacje" class="transition-colors hover:text-black">REALIZACJE</a>
+        <a href="#zalety" class="transition-colors hover:text-black">ZALETY</a>
+      </div>
+
+      <!-- Right Side Actions -->
+      <div class="flex items-center gap-4 z-50">
+        <a href="#contact" class="hidden lg:flex hover:scale-105 transition-transform text-sm font-semibold text-white tracking-wide bg-black rounded-full pt-3 pr-6 pb-3 pl-6 gap-x-1.5 gap-y-1.5 items-center">
+          Kontakt
+        </a>
+        <button class="lg:hidden flex flex-col focus:outline-none w-10 h-10 gap-1.5 items-center justify-center relative z-50" aria-label="Toggle menu" id="hamburger-btn">
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+          <span class="block h-0.5 w-6 rounded-full bg-black transition-all duration-300 origin-center"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="flex flex-col overflow-hidden transition-all duration-500 ease-in-out lg:hidden bg-[#F3F0FF] border-slate-200 border-b absolute top-full left-0 w-full shadow-xl gap-x-6 gap-y-6 items-center menu-closed z-40" id="mobile-menu">
+        <div class="flex flex-col w-full pt-8 pb-8 gap-x-6 gap-y-6 items-center">
+          <a href="#oferta" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">OFERTA</a>
+          <a href="#realizacje" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">REALIZACJE</a>
+          <a href="#zalety" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">ZALETY</a>
+          <a href="#contact" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">KONTAKT</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="lg:px-12 max-w-[1600px] mr-auto ml-auto pt-8 pr-4 pb-20 pl-4">
+
+  <!-- 1. Sekcja Opisowa (Pełna szerokość) -->
+  <section class="flex flex-col animate-enter delay-100 md:mb-32 mb-20">
+    <div class="flex flex-col gap-5">
+
+      <span class="uppercase text-base font-semibold text-slate-900 font-['Inter'] border pt-2 pr-4 pb-2 pl-4">
+          Dlaczego nasze strony
+        </span>
+      <h2 class="leading-[1] lg:text-[5rem] text-5xl font-semibold text-slate-900 tracking-tight font-['Syne'] mb-8 max-w-4xl">
+        Gotowe strony www
+      </h2>
+    </div>
+    <p class="text-lg lg:text-xl text-slate-500 font-medium font-['Inter'] max-w-3xl leading-relaxed">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+      magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+      Duis aute irure dolor in reprehenderit.
+    </p>
+  </section>
+
+  <!-- 2. Sekcja Bento Grid (Zdjęcia) -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-enter delay-200 mb-20 md:mb-32" id="realizacje">
+    <!-- Row 1 -->
+    <!-- 1/3 -->
+    <div class="md:col-span-1 group relative overflow-hidden rounded-[2.5rem] h-[350px] md:h-[450px] clay-card cursor-pointer">
+      <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&amp;w=2727&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Projekt 1">
+      <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
+    </div>
+    <!-- 2/3 -->
+    <div class="md:col-span-2 group relative overflow-hidden rounded-[2.5rem] h-[350px] md:h-[450px] clay-card cursor-pointer">
+      <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e3d434a3-456f-4c0b-a7d8-b71fb3583690_1600w.webp" class="transition-transform duration-700 group-hover:scale-105 w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0" alt="Projekt 2">
+      <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">
+        E-commerce
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <!-- 2/3 -->
+    <div class="md:col-span-2 group relative overflow-hidden rounded-[2.5rem] h-[350px] md:h-[450px] clay-card cursor-pointer">
+      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&amp;w=2669&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Projekt 3">
+      <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">
+        Portfolio
+      </div>
+    </div>
+    <!-- 1/3 -->
+    <div class="md:col-span-1 group relative overflow-hidden rounded-[2.5rem] h-[350px] md:h-[450px] clay-card cursor-pointer">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2564&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Projekt 4">
+    </div>
+  </section>
+
+  <!-- 3. Sekcja Zalety (2 kolumny) -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center animate-enter delay-300" id="zalety">
+    <!-- Lewa kolumna: Lista zalet -->
+    <div class="flex flex-col gap-8 order-2 lg:order-1">
+      <div class="flex flex-col gap-4">
+        <span class="uppercase text-sm font-semibold text-amber-600 tracking-wider font-['Inter']">
+              Standardy jakości
+            </span>
+        <h2 class="text-4xl lg:text-5xl font-semibold text-slate-900 font-['Syne'] tracking-tight">
+          Zalety współpracy
+        </h2>
+        <p class="text-lg text-slate-500 mt-2 font-['Inter']">
+          Tworzymy rozwiązania, które nie tylko wyglądają, ale przede wszystkim działają na korzyść Twojego biznesu.
+        </p>
+      </div>
+
+      <ul class="flex flex-col gap-6 mt-4">
+        <!-- Zaleta 1 -->
+        <li class="flex items-start gap-4 p-4 rounded-3xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-slate-100">
+          <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
+            <iconify-icon icon="solar:rocket-2-linear" width="24" stroke-width="1.5"></iconify-icon>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 mb-1 font-['Syne']">Superszybkie ładowanie</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Optymalizacja kodu i grafik sprawia, że strona ładuje się błyskawicznie, co uwielbiają użytkownicy i
+              Google.
+            </p>
+          </div>
+        </li>
+
+        <!-- Zaleta 2 -->
+        <li class="flex items-start gap-4 p-4 rounded-3xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-slate-100">
+          <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-amber-400 text-slate-900 flex items-center justify-center">
+            <iconify-icon icon="solar:smartphone-linear" width="24" stroke-width="1.5"></iconify-icon>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 mb-1 font-['Syne']">Mobile First</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Perfekcyjny wygląd na każdym urządzeniu. Projektujemy z myślą o smartfonach od samego początku.
+            </p>
+          </div>
+        </li>
+
+        <!-- Zaleta 3 -->
+        <li class="flex items-start gap-4 p-4 rounded-3xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-slate-100">
+          <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-violet-600 text-white flex items-center justify-center">
+            <iconify-icon icon="solar:shield-check-linear" width="24" stroke-width="1.5"></iconify-icon>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-slate-900 mb-1 font-['Syne']">Bezpieczeństwo i wsparcie</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              Regularne kopie zapasowe, certyfikat SSL i pomoc techniczna w cenie pakietu. Śpisz spokojnie.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Prawa kolumna: Zdjęcie -->
+    <div class="order-1 lg:order-2 h-[500px] lg:h-[700px] w-full relative">
+      <div class="clay-card rounded-[3rem] overflow-hidden w-full h-full relative z-10 bg-white">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&amp;w=2670&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Zespół przy pracy">
+        <!-- Decorative Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+        <!-- Floating Badge -->
+        <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-xl p-6 rounded-3xl shadow-lg border border-white/50">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1">Gwarancja jakości</span>
+              <span class="text-xl font-bold text-slate-900 font-['Syne']">100% Satysfakcji</span>
+            </div>
+            <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white">
+              <iconify-icon icon="solar:star-fall-linear" width="24"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Decorative Background Elements -->
+      <div class="absolute -top-10 -right-10 w-64 h-64 bg-amber-200 rounded-full blur-3xl opacity-50 -z-10"></div>
+      <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-violet-200 rounded-full blur-3xl opacity-50 -z-10"></div>
+    </div>
+  </section>
+
+</main>
+
+    <!-- Footer (Bez zmian) -->
+    <footer class="border-t border-slate-200 mt-24 bg-[#F3F0FF]">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Left: Logo & Brand -->
+        <div class="flex items-center gap-3">
+          <div class="flex text-lg font-bold text-white font-['Syne'] bg-black w-14 h-14 rounded-full items-center justify-center">
+            mda
+          </div>
+          <span class="uppercase text-lg font-bold tracking-tight font-['Syne']">
+            madeapp
+          </span>
+        </div>
+
+        <!-- Right: Copyright -->
+        <div class="text-sm font-medium text-slate-500 font-['Inter'] text-center md:text-right">
+          © 2024 madeapp. Wszelkie prawa zastrzeżone.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle Script
+      document.addEventListener('DOMContentLoaded', () => {
+          const menuBtn = document.getElementById('hamburger-btn');
+          const mobileMenu = document.getElementById('mobile-menu');
+          const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+          const spans = menuBtn ? menuBtn.querySelectorAll('span') : [];
+
+          let isMenuOpen = false;
+
+          function closeMenu() {
+              isMenuOpen = false;
+              if (spans.length >= 3) {
+                  spans[0].classList.remove('rotate-45', 'translate-y-2');
+                  spans[1].classList.remove('opacity-0');
+                  spans[2].classList.remove('-rotate-45', '-translate-y-2');
+              }
+              if (mobileMenu) {
+                  mobileMenu.classList.remove('menu-open');
+                  mobileMenu.classList.add('menu-closed');
+              }
+          }
+
+          function toggleMenu() {
+              if (isMenuOpen) {
+                  closeMenu();
+              } else {
+                  isMenuOpen = true;
+                  if (spans.length >= 3) {
+                      spans[0].classList.add('rotate-45', 'translate-y-2');
+                      spans[1].classList.add('opacity-0');
+                      spans[2].classList.add('-rotate-45', '-translate-y-2');
+                  }
+                  if (mobileMenu) {
+                      mobileMenu.classList.remove('menu-closed');
+                      mobileMenu.classList.add('menu-open');
+                  }
+              }
+          }
+
+          if (menuBtn) {
+              menuBtn.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  toggleMenu();
+              });
+          }
+
+          mobileLinks.forEach(link => {
+              link.addEventListener('click', closeMenu);
+          });
+
+          document.addEventListener('click', (e) => {
+              if (isMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && menuBtn && !menuBtn.contains(e.target)) {
+                  closeMenu();
+              }
+          });
+      });
+    </script>
+  
+</body></html>

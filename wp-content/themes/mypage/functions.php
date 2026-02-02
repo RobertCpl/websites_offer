@@ -1,5 +1,12 @@
 <?php
 
+require_once get_stylesheet_directory() . '/inc/woocommerce/cart.php';
+
+// WooCommerce support (Shop, product archives, single products).
+add_action('after_setup_theme', function () {
+    add_theme_support('woocommerce');
+});
+
 add_action('wp_enqueue_scripts', function () {
     $theme_dir = get_stylesheet_directory();
     $theme_uri = get_stylesheet_directory_uri();
@@ -15,7 +22,7 @@ add_action('wp_enqueue_scripts', function () {
         // Load CSS early (in <head>) so critical styles (e.g. loader overlay) apply immediately.
         wp_enqueue_style(
             'theme-main-css',
-            'http://localhost:5173/assets/css/main.css',
+            'http://localhost:5173/wp-content/themes/mypage/assets/css/main.css',
             [],
             null
         );
@@ -29,7 +36,7 @@ add_action('wp_enqueue_scripts', function () {
 
         wp_enqueue_script(
             'theme-main',
-            'http://localhost:5173/assets/js/main.js',
+            'http://localhost:5173/wp-content/themes/mypage/assets/js/main.js',
             [],
             null,
             true
@@ -70,8 +77,8 @@ add_action('wp_enqueue_scripts', function () {
         }
 
         $manifest = json_decode(file_get_contents($manifest_path), true);
-        $entry = $manifest['assets/js/main.js'] ?? null;
-        $css_entry = $manifest['assets/css/main.css'] ?? null;
+        $entry = $manifest['wp-content/themes/mypage/assets/js/main.js'] ?? null;
+        $css_entry = $manifest['wp-content/themes/mypage/assets/css/main.css'] ?? null;
 
         // CSS jako osobny entry (Tailwind v4 CSS-first) — preferowane.
         if (!empty($css_entry['file'])) {

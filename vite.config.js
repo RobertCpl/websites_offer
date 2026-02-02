@@ -27,8 +27,8 @@ export default defineConfig({
     manifest: "manifest.json",
     rollupOptions: {
       input: {
-        main: fromConfig("./assets/js/main.js"),
-        styles: fromConfig("./assets/css/main.css"),
+        main: fromConfig("./wp-content/themes/mypage/assets/js/main.js"),
+        styles: fromConfig("./wp-content/themes/mypage/assets/css/main.css"),
       },
       output: {
         entryFileNames: "assets/[name].[hash].js",

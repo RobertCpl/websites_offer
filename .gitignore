@@ -5,3 +5,15 @@
 /.vscode
 /compose.test.yml
 .DS_Store
+wp-content/uploads
+wp-content/plugins
+wp-content/upgrade
+wp-content/languages
+wp-content/index.php
+wp-content/themes/*
+!wp-content/themes/index.php
+!wp-content/themes/mypage
+!wp-content/themes/mypage/**
+db.sql
+mywebsite.db
+debug.log
