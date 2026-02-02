@@ -6,8 +6,10 @@
 /compose.test.yml
 .DS_Store
 wp-content/uploads
-wp-content/plugins
 wp-content/upgrade
+wp-content/plugins/akismet
+wp-content/plugins/hello.php
+wp-content/plugins/index.php
 wp-content/languages
 wp-content/index.php
 wp-content/themes/*
@@ -17,3 +19,4 @@ wp-content/themes/*
 db.sql
 mywebsite.db
 debug.log
+data_base
