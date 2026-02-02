@@ -1,0 +1,49 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_mywebsite_test
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    environment:
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wordpress_network
+
+  wordpress:
+    image: robertcieplinski/mywebsite:test
+    container_name: wordpress_mywebsite_test
+    depends_on:
+      - mysql
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    command: >
+      bash -lc "chown -R www-data:www-data /var/www/html/wp-content/uploads &&
+      exec docker-entrypoint.sh apache2-foreground"
+    environment:
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false); 
+    volumes:
+      - wp_uploads:/var/www/html/wp-content/uploads
+    networks:
+      - wordpress_network
+      - nginx-proxy_internal-net
+
+volumes:
+  db_data:
+  wp_uploads:
+
+networks:
+  wordpress_network:
+    driver: bridge
+  nginx-proxy_internal-net:
+    external: true
+
+
+# define('WP_HOME', 'http://test.madeapp.pl');
+# define('WP_SITEURL', 'http://test.madeapp.pl');

@@ -3,7 +3,6 @@
 /dist
 /.cursor
 /.vscode
-/compose.test.yml
 .DS_Store
 wp-content/uploads
 wp-content/upgrade
@@ -16,7 +15,5 @@ wp-content/themes/*
 !wp-content/themes/index.php
 !wp-content/themes/mypage
 !wp-content/themes/mypage/**
-db.sql
-mywebsite.db
 debug.log
 data_base
