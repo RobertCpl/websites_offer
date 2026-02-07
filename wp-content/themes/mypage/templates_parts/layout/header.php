@@ -28,7 +28,7 @@
 </head>
 
 
-<body <?php body_class('antialiased overflow-x-hidden selection:bg-amber-300 selection:text-amber-900 text-slate-900 bg-[#F3F0FF]'); ?>>
+<body <?php body_class('antialiased overflow-x-hidden selection:bg-amber-300 selection:text-amber-900 text-gray-500 bg-[#F3F0FF]'); ?>>
   <?php wp_body_open(); ?>
 
   <!-- Navigation -->

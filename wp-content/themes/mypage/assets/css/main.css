@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   h1,
@@ -15,7 +15,7 @@
   h4,
   h5,
   h6 {
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
   }
 }
 
@@ -37,7 +37,6 @@
     animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   .animate-enter {
-
     animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   .delay-100 {
@@ -113,23 +112,13 @@
   .woocommerce-cart-form table {
     @apply rounded-2xl!;
   }
-  .woocommerce .cart-collaterals .cart_totals table{
+  .woocommerce .cart-collaterals .cart_totals table {
     @apply rounded-2xl!;
   }
-  .wc-proceed-to-checkout a{
+  .wc-proceed-to-checkout a {
     @apply bg-black! text-white! rounded-full! text-base!;
   }
   .wc-block-components-radio-control-accordion-option .wc-block-components-radio-control-accordion-option--checked-option-highlighted {
     @apply: rounded-2xl! text-white! bg-black!;
-  }
-
-  }
-
-
-
-@media (min-width: 768px) {
-  .shop-bento-item:nth-child(4n + 2),
-  .shop-bento-item:nth-child(4n + 3) {
-    grid-column: span 2 / span 2;
   }
 }
