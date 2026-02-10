@@ -36,7 +36,7 @@ if ($count === 0) {
     <div class="shop-bento-item relative flex flex-col gap-3">
       <a
         href="<?php echo esc_url($link); ?>"
-        class="group relative overflow-hidden rounded-[40px] cursor-pointer w-full h-[531px] block shadow-[20px_20px_30px_0px_#d4d4d8]">
+        class="group relative overflow-hidden rounded-[40px] cursor-pointer w-full h-132.75 block shadow-[20px_20px_30px_0px_#d4d4d8]">
         <img
           src="<?php echo esc_url($image_url); ?>"
           <?php if (!empty($image_srcset)) : ?>
@@ -48,7 +48,7 @@ if ($count === 0) {
         <?php if (!empty($tags)) : ?>
           <div class="absolute bottom-6 right-6 flex flex-wrap gap-2 z-10 justify-end">
             <?php foreach ($tags as $tag_name) : ?>
-              <span class="backdrop-blur-[6px] bg-black border border-white/20 text-[11px] uppercase font-bold text-white tracking-[0.275px] rounded-full px-[13px] py-[5px]">
+              <span class="backdrop-blur-[6px] bg-black border border-white/20 text-[11px] uppercase font-bold text-white tracking-[0.275px] rounded-full px-3.25 py-1.25">
                 <?php echo esc_html($tag_name); ?>
               </span>
             <?php endforeach; ?>
@@ -57,10 +57,10 @@ if ($count === 0) {
         <div class="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_-10px_-10px_20px_0px_rgba(174,174,192,0.1),inset_10px_10px_20px_0px_rgba(255,255,255,0.8)]"></div>
       </a>
       <div class="px-4 mt-1">
-        <h3 class="text-[24px] leading-[28px] font-semibold text-black"><?php echo esc_html($name); ?></h3>
+        <h3 class="text-[24px] leading-7 font-semibold text-black"><?php echo esc_html($name); ?></h3>
       </div>
       <div class="px-4 mt-0">
-        <p class="text-[16px] leading-[20px] font-semibold text-[#6a7282]"><?php echo wp_kses_post($product->get_price_html()); ?></p>
+        <p class="text-[16px] leading-5 font-semibold text-[#6a7282]"><?php echo wp_kses_post($product->get_price_html()); ?></p>
       </div>
     </div>
   <?php endforeach; ?>

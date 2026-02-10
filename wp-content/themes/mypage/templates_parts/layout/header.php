@@ -32,7 +32,7 @@
   <?php wp_body_open(); ?>
 
   <!-- Navigation -->
-  <nav class="lg:px-12 flex animate-enter w-full max-w-[1600px] mr-auto ml-auto pt-8 pr-6 pb-8 pl-6 relative items-center justify-between z-50">
+  <nav class="lg:px-12 flex animate-enter w-full max-w-400 mr-auto ml-auto pt-8 pr-6 pb-8 pl-6 relative items-center justify-between z-50">
     <?php
     $shop_url = function_exists('wc_get_page_permalink')
       ? call_user_func('wc_get_page_permalink', 'shop')
