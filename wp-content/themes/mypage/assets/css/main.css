@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 /* Tailwind v4: enable class-based dark mode for `dark:*` utilities */
 @custom-variant dark (&:where(.dark, .dark *));
 @source "../../**/*.php";
