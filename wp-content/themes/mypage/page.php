@@ -16,7 +16,7 @@ get_template_part('templates_parts/layout/header');
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
         <h1 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight"><?php the_title(); ?></h1>
-        <div class="prose prose-lg max-w-none text-slate-600 font-light font-['Inter'] leading-relaxed">
+        <div class="prose prose-lg max-w-none font-light font-['Inter'] leading-relaxed">
           <?php the_content(); ?>
         </div>
       <?php endwhile; ?>

@@ -43,13 +43,13 @@ get_template_part('templates_parts/layout/header');
 
         foreach ($chips as $chip) :
         ?>
-          <span class="text-[11px] uppercase font-bold text-slate-500 tracking-[0.275px] bg-white border border-slate-200 rounded-full px-[13px] py-[5px]">
+          <span class="text-[11px] uppercase font-bold tracking-[0.275px] bg-white border border-slate-200 rounded-full px-[13px] py-[5px]">
             <?php echo esc_html($chip); ?>
           </span>
         <?php endforeach; ?>
       </div>
 
-      <h1 class="text-[36px] leading-[45px] tracking-[-0.9px] font-['Syne'] font-bold text-slate-900 pb-8">
+      <h1 class="text-[36px] leading-[45px] tracking-[-0.9px] font-['Syne'] font-bold pb-8">
         <?php the_title(); ?>
       </h1>
     </div>
@@ -111,18 +111,18 @@ get_template_part('templates_parts/layout/header');
 
           foreach ($chips as $chip) :
           ?>
-            <span class="text-[11px] uppercase font-bold text-slate-500 tracking-[0.275px] bg-white border border-slate-200 rounded-full px-[13px] py-[5px]">
+            <span class="text-[11px] uppercase font-bold tracking-[0.275px] bg-white border border-slate-200 rounded-full px-[13px] py-[5px]">
               <?php echo esc_html($chip); ?>
             </span>
           <?php endforeach; ?>
         </div>
 
-        <h1 class="hidden md:block text-[36px] lg:text-[48px] leading-[45px] lg:leading-[45px] tracking-[-0.9px] font-['Syne'] font-bold text-slate-900 pb-8 lg:pb-8">
+        <h1 class="hidden md:block text-[36px] lg:text-[48px] leading-[45px] lg:leading-[45px] tracking-[-0.9px] font-['Syne'] font-bold pb-8 lg:pb-8">
           <?php the_title(); ?>
         </h1>
 
         <?php if (!empty($short_description)) : ?>
-          <div class="text-[16px] leading-[24px] font-medium text-slate-500 pb-6 lg:pb-6">
+          <div class="text-[16px] leading-[24px] font-medium pb-6 lg:pb-6">
             <?php echo wp_kses_post(wpautop($short_description)); ?>
           </div>
         <?php endif; ?>
@@ -158,7 +158,7 @@ get_template_part('templates_parts/layout/header');
             ?>
               <div class="flex items-center gap-2 px-7 py-2">
                 <img src="<?php echo esc_url($item['icon']); ?>" alt="" class="w-6 h-6" loading="lazy" />
-                <span class="text-[16px] leading-[24px] font-medium text-slate-500">
+                <span class="text-[16px] leading-[24px] font-medium">
                   <?php echo esc_html($item['label']); ?>
                 </span>
               </div>
@@ -168,18 +168,18 @@ get_template_part('templates_parts/layout/header');
 
         <div class="flex items-end gap-2 pb-6 md:pb-8 lg:pb-8">
           <?php if ($product->is_on_sale() && $product->get_regular_price()) : ?>
-            <span class="text-[36px] lg:text-[36px] leading-[40px] lg:leading-[40px] font-bold font-['Syne'] text-slate-900 tracking-[-0.9px]">
+            <span class="text-[36px] lg:text-[36px] leading-[40px] lg:leading-[40px] font-bold font-['Syne'] text-black tracking-[-0.9px]">
               <?php echo wp_kses_post(wc_price((float) $product->get_sale_price())); ?>
             </span>
           <?php else : ?>
-            <span class="text-[36px] lg:text-[36px] leading-[40px] lg:leading-[40px] font-bold font-['Syne'] text-slate-900 tracking-[-0.9px]">
+            <span class="text-[36px] lg:text-[36px] leading-[40px] lg:leading-[40px] font-bold font-['Syne'] text-black tracking-[-0.9px]">
               <?php echo wp_kses_post($price_html); ?>
             </span>
           <?php endif; ?>
         </div>
 
         <?php if ($product->is_on_sale() && $product->get_regular_price()) : ?>
-          <div class="text-sm text-slate-400 line-through font-medium pb-6">
+          <div class="text-sm line-through font-medium pb-6">
             <?php echo wp_kses_post(wc_price((float) $product->get_regular_price())); ?>
           </div>
         <?php endif; ?>
@@ -193,7 +193,7 @@ get_template_part('templates_parts/layout/header');
             $max_attr = $max_qty > 0 ? $max_qty : '';
             ?>
             <div class="flex w-full items-center justify-between" data-quantity-selector>
-              <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-500" data-quantity-action="decrease" aria-label="<?php echo esc_attr__('Zmniejsz ilosc', 'mypage'); ?>">
+              <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full text-black" data-quantity-action="decrease" aria-label="<?php echo esc_attr__('Zmniejsz ilosc', 'mypage'); ?>">
                 <span class="text-xl font-bold">-</span>
               </button>
               <input
@@ -205,9 +205,9 @@ get_template_part('templates_parts/layout/header');
                 <?php endif; ?>
                 step="1"
                 value="<?php echo esc_attr($input_value); ?>"
-                class="w-10 text-center bg-transparent font-bold text-[18px] text-slate-500 focus:outline-none"
+                class="w-10 text-center bg-transparent font-bold text-[18px] focus:outline-none"
                 readonly />
-              <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-900" data-quantity-action="increase" aria-label="<?php echo esc_attr__('Zwieksz ilosc', 'mypage'); ?>">
+              <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full text-black" data-quantity-action="increase" aria-label="<?php echo esc_attr__('Zwieksz ilosc', 'mypage'); ?>">
                 <span class="text-xl font-bold">+</span>
               </button>
             </div>
@@ -223,7 +223,7 @@ get_template_part('templates_parts/layout/header');
     <!-- 2. FULL WIDTH DESCRIPTION SECTION -->
     <section class="mt-16 w-full">
       <div class="bg-white rounded-4xl p-6 overflow-hidden">
-        <div class="prose prose-lg max-w-none text-slate-600 font-light leading-relaxed">
+        <div class="prose prose-lg max-w-none font-light leading-relaxed">
           <?php echo apply_filters('the_content', $description); ?>
         </div>
       </div>

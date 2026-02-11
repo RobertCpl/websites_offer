@@ -98,7 +98,7 @@
         <a href="<?php echo esc_url(home_url('/#cennik')); ?>" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">OFERTA</a>
         <a href="<?php echo esc_url(home_url('/#co-robie')); ?>" class="mobile-link transition-colors hover:text-black default text-lg font-medium text-center w-full pt-2 pb-2">CO ROBIE</a>
         <a href="<?php echo esc_url(home_url('/#technologie')); ?>" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">TECHNOLOGIE</a>
-        <a href="<?php echo esc_url($shop_url); ?>" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black text-black">SKLEP</a>
+        <a href="<?php echo esc_url($shop_url); ?>" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black">SKLEP</a>
         <a href="#contact" class="mobile-link text-lg font-medium transition-colors w-full text-center py-2 hover:text-black default">KONTAKT</a>
       </div>
     </div>

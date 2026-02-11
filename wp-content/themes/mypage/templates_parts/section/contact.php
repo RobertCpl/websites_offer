@@ -23,7 +23,7 @@
           </div>
 
           <div class="">
-            <h2 class="lg:text-5xl text-4xl font-semibold text-slate-900 tracking-tight font-['Syne'] mb-6">
+            <h2 class="lg:text-5xl text-4xl font-semibold tracking-tight font-['Syne'] mb-6">
               Porozmawiajmy o Twoim projekcie
             </h2>
             <p class="leading-relaxed text-lg text-gray-600 tracking-normal font-['Inter'] mb-6">
