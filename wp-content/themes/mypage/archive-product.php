@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 get_template_part('templates_parts/layout/header');
 ?>
 
-<main class="lg:px-12 max-w-[1600px] mr-auto ml-auto pt-8 pr-4 pb-20 pl-4">
+<main class="mx-auto px-4 md:px-8 lg:px-12 max-w-400">
 
   <?php get_template_part('templates_parts/section/shop-intro'); ?>
 

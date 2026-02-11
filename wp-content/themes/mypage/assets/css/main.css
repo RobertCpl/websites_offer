@@ -87,9 +87,6 @@
     pointer-events: auto;
   }
 
-  .shop-bento-item {
-    grid-column: span 1 / span 1;
-  }
   .woocommerce-mini-cart__total {
     @apply text-end;
   }
@@ -99,10 +96,13 @@
   .woocommerce-mini-cart__buttons a.button {
     @apply bg-black! text-white! rounded-full! text-sm!;
   }
-  .wc-block-checkout__actions_row button {
+   .wc-block-checkout__actions_row button {
+    @apply bg-black! text-white! rounded-full! text-base!;
+  } 
+  .wc-proceed-to-checkout a {
     @apply bg-black! text-white! rounded-full! text-base!;
   }
-  .wc-block-components-form label {
+  /* .wc-block-components-form label { 
     @apply text-sm! font-semibold! text-slate-400!;
   }
   .wc-block-components-form input {
@@ -117,10 +117,7 @@
   .woocommerce .cart-collaterals .cart_totals table {
     @apply rounded-2xl!;
   }
-  .wc-proceed-to-checkout a {
-    @apply bg-black! text-white! rounded-full! text-base!;
-  }
   .wc-block-components-radio-control-accordion-option .wc-block-components-radio-control-accordion-option--checked-option-highlighted {
     @apply: rounded-2xl! text-white! bg-black!;
-  }
+  } */
 }

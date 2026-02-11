@@ -20,9 +20,9 @@ if ($count === 0) {
 ?>
 
 <section
-  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 animate-enter delay-200 mb-20 md:mb-32"
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12 mb-16 lg:mb-32"
   id="realizacje"
-  style="grid-auto-rows: minmax(624px, auto);">
+ >
   <?php foreach ($products as $product) : ?>
     <?php
     $image_id = $product->get_image_id();
@@ -33,17 +33,17 @@ if ($count === 0) {
     $link = get_permalink($product->get_id());
     $tags = wc_get_product_terms($product->get_id(), 'product_tag', ['fields' => 'names']);
     ?>
-    <div class="shop-bento-item relative flex flex-col gap-3">
+    <div class="col-span-1 relative flex flex-col gap-3">
       <a
         href="<?php echo esc_url($link); ?>"
-        class="group relative overflow-hidden rounded-[40px] cursor-pointer w-full h-[531px] block shadow-[20px_20px_30px_0px_#d4d4d8]">
+        class="group relative overflow-hidden rounded-[40px] cursor-pointer w-full block shadow-[20px_20px_30px_0px_#d4d4d8]">
         <img
           src="<?php echo esc_url($image_url); ?>"
           <?php if (!empty($image_srcset)) : ?>
           srcset="<?php echo esc_attr($image_srcset); ?>"
           sizes="<?php echo esc_attr($image_sizes); ?>"
           <?php endif; ?>
-          class="absolute inset-0 w-full h-full! object-cover transition-transform duration-700 group-hover:scale-105"
+          class="w-full aspect-5/6 object-cover transition-transform duration-700 group-hover:scale-105"
           alt="<?php echo esc_attr($name); ?>">
         <?php if (!empty($tags)) : ?>
           <div class="absolute bottom-6 right-6 flex flex-wrap gap-2 z-10 justify-end">
@@ -54,7 +54,6 @@ if ($count === 0) {
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
-        <div class="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_-10px_-10px_20px_0px_rgba(174,174,192,0.1),inset_10px_10px_20px_0px_rgba(255,255,255,0.8)]"></div>
       </a>
       <div class="px-4 mt-1">
         <h3 class="text-[24px] leading-[28px] font-semibold text-black"><?php echo esc_html($name); ?></h3>

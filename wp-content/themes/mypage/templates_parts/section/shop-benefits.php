@@ -56,7 +56,7 @@ defined('ABSPATH') || exit;
 
   <div class="h-[500px] lg:h-[700px] w-full relative">
     <div class="rounded-[48px] overflow-hidden w-full h-full relative bg-white shadow-[10px_20px_30px_0px_rgba(174,174,192,0.15)]">
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&amp;w=2670&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Zespół przy pracy">
+      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/shop.webp',); ?>" class="absolute inset-0 w-full h-full object-cover" alt="Zespół przy pracy">
       <div class="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
 
       <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-xl p-6 rounded-3xl shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] border border-white/50">

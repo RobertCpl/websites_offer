@@ -6,7 +6,7 @@
 defined('ABSPATH') || exit;
 ?>
 
-<section class="flex flex-col animate-enter delay-100 md:mb-32 mb-20">
+<section class="flex flex-col mb-16 lg:mb-32">
   <div class="flex flex-col gap-5">
     <span class="uppercase text-base font-semibold text-black">
       Dlaczego nasze strony
