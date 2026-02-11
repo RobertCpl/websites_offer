@@ -27,6 +27,7 @@ get_template_part('templates_parts/layout/header');
     $thumb_ids = array_slice($thumb_ids, 0, 4);
     $remaining_thumbs = max(0, count($gallery_ids) + ($image_id ? 1 : 0) - 4);
     $short_description = $product->get_short_description();
+    $description = $product->get_description();
     $average_rating = (float) $product->get_average_rating();
     $review_count = (int) $product->get_review_count();
     $price_html = $product->get_price_html();
@@ -222,7 +223,9 @@ get_template_part('templates_parts/layout/header');
     <!-- 2. FULL WIDTH DESCRIPTION SECTION -->
     <section class="mt-16 w-full">
       <div class="bg-white rounded-4xl p-6 overflow-hidden">
-        
+        <div class="prose prose-lg max-w-none text-slate-600 font-light leading-relaxed">
+          <?php echo apply_filters('the_content', $description); ?>
+        </div>
       </div>
     </section>
 
