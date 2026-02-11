@@ -17,7 +17,6 @@
 
     gtag('config', 'G-LEL8JE83GM');
   </script> -->
-  <script src="https://unpkg.com/lucide@latest" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Syne:wght@500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -63,7 +62,7 @@
         <div class="relative woocommerce" data-mini-cart-root>
           <button type="button" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/60 transition-colors" aria-label="<?php echo esc_attr__('Koszyk', 'mypage'); ?>" aria-haspopup="dialog" aria-expanded="false" data-mini-cart-toggle>
             <span class="sr-only"><?php echo esc_html__('Otwórz koszyk', 'mypage'); ?></span>
-            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/cart.svg',); ?>" alt="cart" class="w-5" loading="lazy" />
             <?php
             if (function_exists('mypage_cart_count_html')) {
               echo mypage_cart_count_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

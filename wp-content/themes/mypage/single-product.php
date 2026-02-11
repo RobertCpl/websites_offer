@@ -129,7 +129,7 @@ get_template_part('templates_parts/layout/header');
 
         <div class="flex flex-col items-start pb-6 lg:pb-6 xl:pb-8 md:items-start md:justify-start">
           <div class="flex items-center justify-center pb-4 md:justify-start">
-            <span class="text-[20px] font-medium text-black">
+            <span class="text-[20px] font-bold text-black font-['Syne']">
               <?php echo esc_html__('Nasza cena zawiera', 'mypage'); ?>
             </span>
           </div>
