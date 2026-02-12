@@ -2,6 +2,7 @@
 
 import './add-to-cart-ajax.js';
 import './mini-cart-dropdown.js';
+import { initProductLivePreview } from './product-live-preview.js';
 
 const initLucideIcons = () => {
   const run = () => window.lucide?.createIcons?.();
@@ -16,6 +17,7 @@ const initLucideIcons = () => {
 // Pricing Calculation Logic
 document.addEventListener('DOMContentLoaded', () => {
   initLucideIcons();
+  initProductLivePreview();
 
   const quantitySelectors = document.querySelectorAll('[data-quantity-selector]');
   quantitySelectors.forEach((selector) => {
