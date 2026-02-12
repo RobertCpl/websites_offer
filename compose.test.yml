@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     env_file:
       - .env.prod
-    environment:
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -21,7 +20,7 @@ services:
     env_file:
       - .env.prod
     command: >
-      bash -lc "chown -R www-data:www-data /var/www/html/wp-content/uploads &&
+      bash -lc "chown -R www-data:www-data /var/www/html/wp-content &&
       exec docker-entrypoint.sh apache2-foreground"
     environment:
       WORDPRESS_CONFIG_EXTRA: |
@@ -30,6 +29,7 @@ services:
         define('WP_DEBUG_DISPLAY', false); 
     volumes:
       - wp_uploads:/var/www/html/wp-content/uploads
+      - wp_plugins:/var/www/html/wp-content/plugins
     networks:
       - wordpress_network
       - nginx-proxy_internal-net
@@ -37,6 +37,7 @@ services:
 volumes:
   db_data:
   wp_uploads:
+  wp_plugins:
 
 networks:
   wordpress_network:
