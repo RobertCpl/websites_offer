@@ -31,6 +31,10 @@ get_template_part('templates_parts/layout/header');
     $average_rating = (float) $product->get_average_rating();
     $review_count = (int) $product->get_review_count();
     $price_html = $product->get_price_html();
+    $live_preview_url = function_exists('mypage_get_live_preview_url')
+      ? mypage_get_live_preview_url($product->get_id())
+      : '';
+    $has_live_preview = $live_preview_url !== '';
   ?>
 
     <div class="flex flex-col pb-4 md:hidden">
@@ -58,7 +62,7 @@ get_template_part('templates_parts/layout/header');
     <section class="flex flex-col gap-6 md:flex-row md:gap-8 lg:gap-8 xl:gap-12 animate-enter delay-100 items-start">
       <!-- Left Column: Images -->
       <div class="flex flex-col gap-6 w-full order-1 md:order-1 md:flex-1">
-        <div class="w-full rounded-4xl lg:rounded-[48px] xl:rounded-[48px] overflow-hidden aspect-5/6 relative bg-white group">
+        <div class="w-full overflow-hidden aspect-5/6 relative bg-white group rounded-[32px] shadow-[10px_20px_30px_0px_rgba(174,174,192,0.15)]" data-live-preview-card data-live-preview-armed="false">
           <?php
           if ($image_id) {
             echo wp_get_attachment_image(
@@ -69,6 +73,32 @@ get_template_part('templates_parts/layout/header');
             );
           }
           ?>
+
+          <?php if ($has_live_preview) : ?>
+            <div class="pointer-events-none absolute inset-0 z-10 rounded-[32px] bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100" data-live-preview-overlay></div>
+            <div class="pointer-events-none absolute left-1/2 top-1/2 z-20 flex w-[212px]  -translate-x-1/2 -translate-y-1/2 translate-y-2 flex-col items-center justify-center gap-2 rounded-[32px] bg-black px-4 py-3 text-white opacity-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100" data-live-preview-cta>
+              <span class="text-base font-semibold leading-none whitespace-nowrap">
+                <?php echo esc_html__('Zobacz stronę na żywo', 'mypage'); ?>
+              </span>
+              <img
+                src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/product/live-preview-pointer.svg'); ?>"
+                alt=""
+                class="h-5 w-5 shrink-0"
+                loading="lazy"
+                aria-hidden="true"
+              />
+            </div>
+            <a
+              href="<?php echo esc_url($live_preview_url); ?>"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute inset-0 z-30 block rounded-[32px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              aria-label="<?php echo esc_attr__('Zobacz stronę na żywo', 'mypage'); ?>"
+              data-live-preview-link
+            >
+              <span class="sr-only"><?php echo esc_html__('Zobacz stronę na żywo', 'mypage'); ?></span>
+            </a>
+          <?php endif; ?>
         </div>
 
         <?php if (!empty($thumb_ids)) : ?>
