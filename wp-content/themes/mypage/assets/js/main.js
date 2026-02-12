@@ -2,6 +2,7 @@
 
 import './add-to-cart-ajax.js';
 import './mini-cart-dropdown.js';
+import './checkout-company-nip.js';
 import { initProductLivePreview } from './product-live-preview.js';
 
 const initLucideIcons = () => {

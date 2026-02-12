@@ -2,6 +2,7 @@
 
 require_once get_stylesheet_directory() . '/inc/woocommerce/cart.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/live-preview.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/checkout-company-nip.php';
 
 // WooCommerce support (Shop, product archives, single products).
 add_action('after_setup_theme', function () {
