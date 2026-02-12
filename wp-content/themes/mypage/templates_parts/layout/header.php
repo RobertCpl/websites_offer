@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MADEAPP | Strony bez kompromisów</title>
   <!-- Google tag (gtag.js) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEL8JE83GM"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEL8JE83GM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -16,7 +16,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-LEL8JE83GM');
-  </script> -->
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Syne:wght@500;600;700;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
