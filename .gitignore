@@ -6,9 +6,8 @@
 .DS_Store
 wp-content/uploads
 wp-content/upgrade
-wp-content/plugins/akismet
-wp-content/plugins/hello.php
-wp-content/plugins/index.php
+wp-content/plugins
+wp-content/upgrade-temp-backup
 wp-content/languages
 wp-content/index.php
 wp-content/themes/*
